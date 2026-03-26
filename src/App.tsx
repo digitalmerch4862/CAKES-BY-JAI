@@ -16,7 +16,8 @@ import {
   MessageCircle, 
   ChevronRight,
   Instagram,
-  Facebook
+  Facebook,
+  Heart
 } from "lucide-react";
 
 const BUSINESS_NAME = "Cakes by Jai";
@@ -262,58 +263,169 @@ export default function App() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative h-[90vh] flex items-center pt-20 overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img 
-              src="https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489503180_1114019514075027_7737077209642158684_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHrIUcRAlPkNVImi0J6u8zDMVXCIm8z3rwxVcIibzPevCTopZGCGsjdBTtwyMKcx0g&_nc_ohc=QbyzmqOag7gQ7kNvwENxnZR&_nc_oc=AdrrG0sZNRmbfhn9SwEcwwTqUPZ0e7o8pfBVdjmLDkz18o2YU8fPhcnud1KjzMc_Uys&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=qpHDxqragUvO6kzQm0M_JQ&_nc_ss=7a32e&oh=00_AfwNf5iJiqeRRq5UaA_YdIhc3dtqy9Lm4iOX4KiwRzUMHw&oe=69CAB879" 
-              alt="Luxury Custom Cake" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-            <div className="absolute inset-0 bg-black/40" />
+        <section className="relative min-h-[95vh] flex flex-col lg:flex-row items-stretch pt-20 overflow-hidden bg-luxury-bg">
+          {/* Decorative Background Text */}
+          <div className="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/4 text-[20rem] font-serif font-bold text-primary/5 select-none pointer-events-none hidden lg:block">
+            Jai
           </div>
-          
-          <div className="relative z-10 max-w-7xl mx-auto px-4 w-full">
+
+          {/* Text Content */}
+          <div className="flex-1 flex items-center px-4 sm:px-8 lg:px-20 py-12 lg:py-0 z-10">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="max-w-2xl text-white"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="max-w-2xl relative"
             >
-              <span className="inline-block px-4 py-1.5 bg-accent text-white text-xs font-bold uppercase tracking-[0.2em] mb-6 rounded-sm">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-3 px-5 py-2 bg-white text-primary text-[11px] font-bold uppercase tracking-[0.4em] mb-10 rounded-full shadow-sm border border-primary/10"
+              >
+                <div className="flex gap-1">
+                  {[1, 2, 3].map(i => <div key={i} className="w-1 h-1 rounded-full bg-primary animate-pulse" style={{ animationDelay: `${i * 0.2}s` }} />)}
+                </div>
                 Bespoke Luxury Bakery
-              </span>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-[1.1]">
-                Exquisite Cakes for Your Most Precious Moments
+              </motion.div>
+              
+              <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-10 leading-[0.85] tracking-tighter text-gray-900">
+                Edible <span className="text-primary italic font-serif font-normal block lg:inline">Masterpieces</span>
               </h1>
-              <p className="text-lg md:text-xl mb-10 text-gray-100 font-light leading-relaxed">
-                Handcrafted luxury cakes in Cabuyao City, Laguna. We transform your vision into edible art using only the finest ingredients.
+              
+              <p className="text-xl md:text-2xl mb-14 text-gray-600 font-light leading-relaxed max-w-lg">
+                Transforming your most precious visions into handcrafted luxury cakes in Cabuyao City, Laguna.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              
+              <div className="flex flex-col sm:flex-row gap-6">
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
                   onClick={handleWhatsApp}
-                  className="flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:opacity-90 transition-all shadow-xl shadow-primary/40 group"
+                  className="flex items-center justify-center gap-4 bg-primary text-white px-12 py-6 rounded-full text-xl font-bold hover:shadow-[0_20px_50px_rgba(209,77,114,0.3)] transition-all group"
                 >
-                  <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  Message on WhatsApp
+                  <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
+                  Start Your Order
                 </motion.button>
+                
                 <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => document.getElementById('quote')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/30 px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/20 transition-all"
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={(e) => handleNavClick(e, 'gallery')}
+                  className="flex items-center justify-center gap-4 bg-white text-gray-900 border border-gray-100 px-12 py-6 rounded-full text-xl font-bold hover:bg-gray-50 transition-all shadow-sm"
                 >
-                  Request a Quote
+                  Explore Gallery
                 </motion.button>
               </div>
-              <div className="mt-12 flex items-center gap-4 text-sm text-gray-200">
-                <MapPin className="w-4 h-4 text-accent" />
-                <span>33 Malate St, Cabuyao City, Laguna</span>
+              
+              <div className="mt-20 flex flex-wrap items-center gap-10">
+                <div className="flex items-center gap-4">
+                  <div className="flex -space-x-4">
+                    {[1, 2, 3, 4].map((i) => (
+                      <img 
+                        key={i}
+                        src={`https://i.pravatar.cc/100?img=${i + 20}`} 
+                        alt="Customer" 
+                        className="w-12 h-12 rounded-full border-4 border-luxury-bg shadow-sm"
+                        referrerPolicy="no-referrer"
+                      />
+                    ))}
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-1 text-primary mb-1">
+                      {[1, 2, 3, 4, 5].map((i) => <Star key={i} className="w-4 h-4 fill-current" />)}
+                    </div>
+                    <p className="text-sm text-gray-500 font-semibold">500+ Celebrations Shared</p>
+                  </div>
+                </div>
+                
+                <div className="h-10 w-px bg-gray-200 hidden sm:block" />
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center text-primary">
+                    <Heart className="w-5 h-5 fill-current" />
+                  </div>
+                  <div className="text-sm font-bold text-gray-900 uppercase tracking-widest">Made with Love</div>
+                </div>
               </div>
             </motion.div>
           </div>
+
+          {/* Image Side */}
+          <div className="flex-1 relative min-h-[60vh] lg:min-h-0 overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, scale: 1.2 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0"
+            >
+              <img 
+                src="https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489503180_1114019514075027_7737077209642158684_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHrIUcRAlPkNVImi0J6u8zDMVXCIm8z3rwxVcIibzPevCTopZGCGsjdBTtwyMKcx0g&_nc_ohc=QbyzmqOag7gQ7kNvwENxnZR&_nc_oc=AdrrG0sZNRmbfhn9SwEcwwTqUPZ0e7o8pfBVdjmLDkz18o2YU8fPhcnud1KjzMc_Uys&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=qpHDxqragUvO6kzQm0M_JQ&_nc_ss=7a32e&oh=00_AfwNf5iJiqeRRq5UaA_YdIhc3dtqy9Lm4iOX4KiwRzUMHw&oe=69CAB879" 
+                alt="Luxury Custom Cake" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+              {/* Gradient Overlays */}
+              <div className="absolute inset-0 bg-gradient-to-r from-luxury-bg via-transparent to-transparent lg:block hidden" />
+              <div className="absolute inset-0 bg-gradient-to-t from-luxury-bg via-transparent to-transparent lg:hidden block" />
+              <div className="absolute inset-0 bg-primary/5 mix-blend-overlay" />
+            </motion.div>
+            
+            {/* Floating Achievement Badge */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              className="absolute top-10 right-10 p-5 bg-white/90 backdrop-blur-xl rounded-2xl border border-white/50 shadow-2xl hidden sm:block"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg shadow-primary/30">
+                  <Star className="w-6 h-6 fill-current" />
+                </div>
+                <div>
+                  <div className="text-xs text-gray-500 uppercase font-bold tracking-widest mb-0.5">Top Rated</div>
+                  <div className="font-serif italic text-gray-900">Laguna's Finest</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Location Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              className="absolute bottom-10 left-10 right-10 lg:left-auto lg:right-10 lg:w-72 p-6 bg-white/90 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl"
+            >
+              <div className="flex items-center gap-4 mb-3">
+                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center text-primary">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div>
+                  <div className="font-bold text-gray-900">Cabuyao City</div>
+                  <div className="text-[10px] text-gray-400 uppercase tracking-widest">Main Studio</div>
+                </div>
+              </div>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                33 Malate St, Cabuyao City, Laguna. Open for consultations.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Scroll Indicator */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5 }}
+            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 hidden lg:block"
+          >
+            <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center p-1">
+              <motion.div 
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="w-1 h-2 bg-primary rounded-full"
+              />
+            </div>
+          </motion.div>
         </section>
 
         {/* Services Section */}
