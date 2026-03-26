@@ -79,6 +79,18 @@ export const ChatBot: React.FC = () => {
   return (
     <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
       <AnimatePresence>
+        {!isOpen && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 20 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            exit={{ opacity: 0, scale: 0.8, x: 20 }}
+            transition={{ delay: 3, duration: 0.5 }}
+            className="mb-4 bg-white px-5 py-3 rounded-2xl shadow-xl border border-primary/10 text-sm font-medium text-gray-700 relative"
+          >
+            How can I help you?
+            <div className="absolute -bottom-2 right-6 w-4 h-4 bg-white border-r border-b border-primary/10 rotate-45" />
+          </motion.div>
+        )}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -164,12 +176,27 @@ export const ChatBot: React.FC = () => {
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
+        animate={!isOpen ? {
+          boxShadow: [
+            "0 0 0 0px rgba(209, 77, 114, 0)",
+            "0 0 0 15px rgba(209, 77, 114, 0.2)",
+            "0 0 0 0px rgba(209, 77, 114, 0)"
+          ]
+        } : {}}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all ${
+        className={`w-16 h-16 rounded-full shadow-2xl flex items-center justify-center transition-all relative ${
           isOpen ? "bg-white text-primary border border-primary/10" : "bg-primary text-white"
         }`}
       >
         {isOpen ? <X className="w-8 h-8" /> : <MessageCircle className="w-8 h-8" />}
+        {!isOpen && (
+          <span className="absolute top-0 right-0 w-4 h-4 bg-accent border-2 border-white rounded-full animate-bounce" />
+        )}
       </motion.button>
     </div>
   );
