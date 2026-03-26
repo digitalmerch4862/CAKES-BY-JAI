@@ -1,0 +1,5 @@
+{
+  "name": "Cakes by Jai",
+  "description": "Luxury custom cakes and pastries in Cabuyao City, Laguna. Exquisite designs for weddings, birthdays, and special celebrations.",
+  "requestFramePermissions": ["geolocation"]
+}
