@@ -20,6 +20,8 @@ import {
   Heart
 } from "lucide-react";
 
+import { ChatBot } from "./components/ChatBot";
+
 const BUSINESS_NAME = "Cakes by Jai";
 const PHONE = "0912 345 6789";
 const WHATSAPP = "0912 345 6789";
@@ -856,21 +858,8 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Floating Action Button for Mobile */}
-      <div className="fixed bottom-6 right-6 sm:hidden z-50 flex flex-col gap-3">
-        <button 
-          onClick={handleCall}
-          className="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center"
-        >
-          <Phone className="w-6 h-6" />
-        </button>
-        <button 
-          onClick={handleWhatsApp}
-          className="w-14 h-14 bg-green-600 text-white rounded-full shadow-2xl flex items-center justify-center"
-        >
-          <MessageCircle className="w-6 h-6" />
-        </button>
-      </div>
+      {/* AI Chat Assistant */}
+      <ChatBot />
     </div>
   );
 }
