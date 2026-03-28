@@ -17,10 +17,21 @@ import {
   ChevronRight,
   Instagram,
   Facebook,
-  Heart
+  Heart,
+  ShoppingBag
 } from "lucide-react";
 
 import { ChatBot } from "./components/ChatBot";
+import { PaymentPortal } from "./components/PaymentPortal";
+import { Cart } from "./components/Cart";
+
+interface CartItem {
+  id: string;
+  title: string;
+  price: number;
+  quantity: number;
+  url: string;
+}
 
 const BUSINESS_NAME = "Cakes by Jai";
 const PHONE = "0912 345 6789";
@@ -55,51 +66,48 @@ const SERVICES = [
   }
 ];
 
-const GALLERY = [
+const PRODUCTS = [
   {
+    id: "p1",
     url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/490013077_1114019630741682_7141718429963901221_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHiyrPBNAoYa2t7m52jgeg6SiO0EVYlXP5KI7QRViVc_mbpreiu-f1DjTC80hnJvSM&_nc_ohc=cwQJCKN82zoQ7kNvwGbhRoy&_nc_oc=Adp8bH2nRbllLTOrV2DJp0NSEdUb3Pf1hGrHmw5IriO7_Xnuxo7nNh2J7hBgNwVSmCU&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=E2qx3lleEolvsQqnBlTZ_w&_nc_ss=7a32e&oh=00_Afzl8QKnGSc3a1N_1LSWL0q2FoXi0rChmZcPDMtOagO57w&oe=69CAC648",
     title: "Elegant Tiered Design",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
+    price: 2500,
+    description: "A sophisticated multi-tiered cake perfect for weddings and grand celebrations."
   },
   {
+    id: "p2",
     url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489791658_1114019620741683_1033841171124339470_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGsaN3HUKSlNTj0WHIOg2Ymc-S5og-8-lZz5LmiD7z6Vu7G272moLN7X4C1I9dCy0s&_nc_ohc=x0NW4ieybUgQ7kNvwEF6IdT&_nc_oc=AdrE-aQhCboBWrgeeFZKdaeD4eAlvQXwYsYaCTx5sLdSqOvjHzvOOLcAAnWxtAFTNBI&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=FxZ8lMPMK0GNkv-fg3CA1g&_nc_ss=7a32e&oh=00_AfzmoWOvoLoJZdR23xtqO-1fpodKvYsvo508B7Ch5ejFCw&oe=69CADE6D",
     title: "Floral Masterpiece",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
+    price: 1800,
+    description: "Handcrafted sugar flowers adorn this delicate and flavorful creation."
   },
   {
+    id: "p3",
     url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489132958_1114019644075014_1831521694006131761_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHuufsfK2Ar_mrDjkMkqj8AfGsSHcLYj2x8axIdwtiPbLXIm7dl8PrC_JdFQJrflSY&_nc_ohc=RF6FHdh5DVgQ7kNvwGsy2HA&_nc_oc=Adr8ecRJESJY-xUvsBM1cZDp3rNO0MTqJWKewOWJi5vyMZUJ767uD3lDXvBUT6tbFOQ&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=ntJQu2eALe4IKvwe-oioTw&_nc_ss=7a32e&oh=00_AfyeOGpE6nZKerZ03T2s_we9FRjNBl6z5zmsgrU5clci_g&oe=69CAD553",
     title: "Bespoke Wedding Cake",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
+    price: 5500,
+    description: "Customized to your theme, this cake is the centerpiece your wedding deserves."
   },
   {
+    id: "p4",
     url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489792470_1114019484075030_1451504521821765654_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH9ql9tFekhtelFPMdzsXOum1QZsQSOx-WbVBmxBI7H5euFQoBULnb_kNNhiBRPdWU&_nc_ohc=aIy2gz43bmIQ7kNvwFGcE2B&_nc_oc=AdpcW_fogmgd11gbZ5hWiTf8-B_rYtocHk7EUl0q6ligWi1DkgfTiflIb3KKzbR7W7A&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=fODv1pvZkQ4dzB6CxZ-ZQw&_nc_ss=7a32e&oh=00_Afz9RBVAWbI8QfbntO2OAtAZY-sBTLCT4YXIBFfvKHbXjA&oe=69CADE07",
     title: "Artisanal Detail",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
+    price: 1200,
+    description: "Intricate piping and modern textures for a stylish celebration."
   },
   {
+    id: "p5",
     url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518318785_1193420466134931_5281555292695521905_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH8g7_8AeaZsi2KGwAr9x6ElbsEVNJ6_XmVuwRU0nr9eR04GmjlGKITrJXGcfLgsg0&_nc_ohc=OktEI0bNccgQ7kNvwEqaqTA&_nc_oc=AdrqVjvLee4l3ZbxW_AxZxMWGgMqviTZz1FwpEV9H0v88iqo3yEgJfm0y94AhRws224&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=vaDYSreWnR7TXr2FQVocGA&_nc_ss=7a32e&oh=00_AfziggYDogptv_E7VqQ0Rl1_CIjbQ7UBuW0CvcJvn5DQaA&oe=69CADABF",
     title: "Signature Creation",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
+    price: 2200,
+    description: "Our most popular design, balancing classic flavors with modern art."
   },
   {
+    id: "p6",
     url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518335794_1193420509468260_6923162679469864501_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEXUDRvmjKke_gGnYalRHJnlCqq1OhRuGiUKqrU6FG4aGDPcP4_BEHtMiMHbux8RhA&_nc_ohc=f9ppFzCtqB4Q7kNvwFz_hJq&_nc_oc=Adr1GSOIn7D0WOLLOBLEA0BS5cz1jcWe_Z5-iYWRBAQMg8KhxBvBb-jFJ9VjXtDCazY&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=nF54J6gRNjp7guueO_xdHQ&_nc_ss=7a32e&oh=00_AfzrnpSqVw8AJLWIeEeQZ-4uFgUE5fAbsdw2ow7b6jEe8g&oe=69CAC3F3",
     title: "Luxury Pastry",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
-  },
-  {
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518308767_1193420592801585_9165065907770436382_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGoHq-Mx31pZqf9wR_SoCvFZjXc5inBuoBmNdzmKcG6gPNyD5rvoCS6gRRtwMSn7GA&_nc_ohc=-lYAKBCg18QQ7kNvwFoLGYe&_nc_oc=AdoV3BGgiLZFcoa4kT4oHzOp1QDHsp7zXF2pQxtzZ8xzwqcwEWmHd6--DdRJQX3-SBg&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=4CE_zv5yO_r-0NInX-OXeA&_nc_ss=7a3a8&oh=00_AfwHaFSxTIE19UOfUCxVrVjuXBkHDLR3ycds_PRMyo3aKA&oe=69CAB77B",
-    title: "Exquisite Dessert",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
-  },
-  {
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518321847_1193420642801580_8561831025634860870_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEAuqYQY8HymuIZjQlF88aOBmh54xj56asGaHnjGPnpq1TWsyJuFbHq7Dd6C3h4lp8&_nc_ohc=yhAhmdy-k6QQ7kNvwFTZ3-B&_nc_oc=AdqgUGnIqDA72hKtyN0P1IB2CR5zyW_gYwPECzKlepJhzCUB6JvwjkzpAZ1DwRh9AxI&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=-S7BjHvsrhdZHkHzKpjLuA&_nc_ss=7a32e&oh=00_Afzv-wbHZZrTtWUKjxlz1UVT5FgOA6yBAZDCg6u8Zdt0Nw&oe=69CAE71F",
-    title: "Boutique Cake Design",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
-  },
-  {
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518283637_1193420709468240_8459548005968608267_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEnZzqTMzH7sCUZmSPxaYkTe87i_qJRKSt7zuL-olEpKx0nvQHLmUTxvPUGhSW6CcE&_nc_ohc=u9G_a216X6sQ7kNvwEiOFMD&_nc_oc=Ado0kNhXTnqqG-GW3Iu4xM1CdX4IYUQuapOh4CObwGGtltPu5yjV7hh0tgeiegWY8mU&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=ZZFJYCVMdj1WdNxgnYhmwQ&_nc_ss=7a32e&oh=00_AfxkwAEeFH0igRL4b7ym2qUvGw-KrxHjZlrnjC-ybGtG-w&oe=69CACA0A",
-    title: "Handcrafted Elegance",
-    link: "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA"
+    price: 950,
+    description: "Small in size, grand in flavor. Perfect for intimate gifts."
   }
 ];
 
@@ -168,6 +176,38 @@ const FAQS = [
 
 export default function App() {
   const [isBrowsing, setIsBrowsing] = useState(false);
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+  const [selectedPrice, setSelectedPrice] = useState("500.00");
+  const [cart, setCart] = useState<CartItem[]>([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const addToCart = (product: any) => {
+    setCart(prev => {
+      const existing = prev.find(item => item.id === product.id);
+      if (existing) {
+        return prev.map(item => item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item);
+      }
+      return [...prev, { ...product, quantity: 1 }];
+    });
+    setIsCartOpen(true);
+  };
+
+  const removeFromCart = (id: string) => {
+    setCart(prev => prev.filter(item => item.id !== id));
+  };
+
+  const updateQuantity = (id: string, delta: number) => {
+    setCart(prev => prev.map(item => {
+      if (item.id === id) {
+        const newQty = Math.max(1, item.quantity + delta);
+        return { ...item, quantity: newQty };
+      }
+      return item;
+    }));
+  };
+
+  const cartTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleWhatsApp = () => {
     const message = `Hi Jai! I'd like to inquire about a cake.`;
@@ -253,13 +293,32 @@ export default function App() {
             <a href="#about" onClick={(e) => handleNavClick(e, 'about')} className="hover:text-primary transition-colors">About</a>
             <a href="#testimonials" onClick={(e) => handleNavClick(e, 'testimonials')} className="hover:text-primary transition-colors">Reviews</a>
           </nav>
-          <button 
-            onClick={handleWhatsApp}
-            className="hidden sm:flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
-          >
-            <MessageCircle className="w-4 h-4" />
-            Order Now
-          </button>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-gray-600 hover:text-primary transition-colors group"
+            >
+              <div className="w-10 h-10 rounded-full bg-luxury-bg flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                <ShoppingBag className="w-5 h-5" />
+              </div>
+              {cartCount > 0 && (
+                <motion.span 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="absolute -top-1 -right-1 w-5 h-5 bg-primary text-white text-[10px] font-bold rounded-full flex items-center justify-center border-2 border-white"
+                >
+                  {cartCount}
+                </motion.span>
+              )}
+            </button>
+            <button 
+              onClick={handleWhatsApp}
+              className="hidden sm:flex items-center gap-2 bg-primary text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-all shadow-lg shadow-primary/20"
+            >
+              <MessageCircle className="w-4 h-4" />
+              Order Now
+            </button>
+          </div>
         </div>
       </header>
 
@@ -303,7 +362,12 @@ export default function App() {
                 <motion.button 
                   whileHover={{ scale: 1.02, y: -4 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={handleWhatsApp}
+                  onClick={() => {
+                    const element = document.getElementById('gallery');
+                    if (element) {
+                      element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
                   className="flex items-center justify-center gap-4 bg-primary text-white px-12 py-6 rounded-full text-xl font-bold hover:shadow-[0_20px_50px_rgba(209,77,114,0.3)] transition-all group"
                 >
                   <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
@@ -313,10 +377,18 @@ export default function App() {
                 <motion.button 
                   whileHover={{ scale: 1.02, y: -4 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={(e) => handleNavClick(e, 'gallery')}
-                  className="flex items-center justify-center gap-4 bg-white text-gray-900 border border-gray-100 px-12 py-6 rounded-full text-xl font-bold hover:bg-gray-50 transition-all shadow-sm"
+                  onClick={() => {
+                    addToCart({
+                      id: "reservation",
+                      title: "Reservation Deposit",
+                      price: 500,
+                      url: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=200&auto=format&fit=crop"
+                    });
+                  }}
+                  className="flex items-center justify-center gap-4 bg-gray-900 text-white px-12 py-6 rounded-full text-xl font-bold hover:shadow-[0_20px_50px_rgba(0,0,0,0.2)] transition-all group"
                 >
-                  Explore Gallery
+                  <CheckCircle2 className="w-6 h-6 group-hover:scale-110 transition-transform" />
+                  Reserve Your Date
                 </motion.button>
               </div>
               
@@ -461,38 +533,58 @@ export default function App() {
           </div>
         </section>
 
-        {/* Gallery Section */}
+        {/* Products Section */}
         <section id="gallery" className="py-24 bg-white">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Featured Creations</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Our Signature Cakes</h2>
               <div className="w-20 h-1 bg-accent mx-auto mb-6" />
               <p className="text-gray-500 max-w-2xl mx-auto">
-                A glimpse into our studio's most beloved designs. Each piece is a unique collaboration with our clients.
+                Handcrafted masterpieces available for reservation. Select your favorite and secure your date today.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {GALLERY.map((item, idx) => (
-                <motion.a 
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+              {PRODUCTS.map((product, idx) => (
+                <motion.div 
                   key={idx}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.02 }}
-                  className="relative group aspect-square overflow-hidden rounded-3xl shadow-lg"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1 }}
+                  className="group bg-luxury-bg/20 rounded-[2.5rem] overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-500"
                 >
-                  <img 
-                    src={item.url} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
-                    <h3 className="text-white text-xl font-bold">{item.title}</h3>
-                    <p className="text-accent text-sm font-medium">View on Maps</p>
+                  <div className="relative aspect-[4/5] overflow-hidden">
+                    <img 
+                      src={product.url} 
+                      alt={product.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg">
+                      <span className="text-primary font-bold">₱{product.price}</span>
+                    </div>
                   </div>
-                </motion.a>
+                  
+                  <div className="p-8 space-y-4">
+                    <div>
+                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{product.title}</h3>
+                      <p className="text-gray-500 text-sm leading-relaxed line-clamp-2">
+                        {product.description}
+                      </p>
+                    </div>
+                    
+                    <button 
+                      onClick={() => {
+                        addToCart(product);
+                      }}
+                      className="w-full py-4 bg-gray-900 text-white rounded-full font-bold flex items-center justify-center gap-3 hover:bg-primary transition-all shadow-lg shadow-gray-200"
+                    >
+                      <Cake className="w-5 h-5" />
+                      Add to Cart
+                    </button>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -860,6 +952,27 @@ export default function App() {
 
       {/* AI Chat Assistant */}
       <ChatBot />
+
+      {/* Cart Drawer */}
+      <Cart 
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+        items={cart}
+        onUpdateQuantity={updateQuantity}
+        onRemove={removeFromCart}
+        onCheckout={() => {
+          setSelectedPrice(cartTotal.toLocaleString());
+          setIsCartOpen(false);
+          setIsPaymentOpen(true);
+        }}
+      />
+
+      {/* Payment Portal */}
+      <PaymentPortal 
+        isOpen={isPaymentOpen} 
+        onClose={() => setIsPaymentOpen(false)} 
+        amount={selectedPrice}
+      />
     </div>
   );
 }
