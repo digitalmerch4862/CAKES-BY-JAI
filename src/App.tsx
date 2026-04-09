@@ -41,7 +41,7 @@ const ADDRESS = "33 Malate St, Cabuyao City, Laguna, Philippines";
 const MAPS_LINK = "https://maps.app.goo.gl/qMeFa6QyNC6pT95TA";
 const FACEBOOK_LINK = "https://www.facebook.com/cakesbyjai2020/";
 const TIKTOK_LINK = "https://www.tiktok.com/@cakes_by_jai";
-const LOGO_URL = "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/305832199_456591943151124_5258538409421345392_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=1d70fc&_nc_eui2=AeGYES2qy9NGPXcKHBApLlHog5jRdIAnEC2DmNF0gCcQLcOh41-E3R5CAGAAdh70ARQ&_nc_ohc=TZ4c8gM1-bwQ7kNvwGmuFRB&_nc_oc=AdrToX0YSGEB8eZMjCRedri72tsoV8bySOsUD5bD1qCFyTpz05BCeaN9zOPgDFuYWOE&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=kjY3r27awS8-mdtI3hFtcg&_nc_ss=7a32e&oh=00_Afx0yy_ChwKB1A00Dgd8DoABsmpZOVIjH-dT6c2zUCkT6w&oe=69CADB3B";
+const LOGO_URL = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=200&h=200&auto=format&fit=crop";
 
 const SERVICES = [
   {
@@ -69,42 +69,42 @@ const SERVICES = [
 const PRODUCTS = [
   {
     id: "p1",
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/490013077_1114019630741682_7141718429963901221_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHiyrPBNAoYa2t7m52jgeg6SiO0EVYlXP5KI7QRViVc_mbpreiu-f1DjTC80hnJvSM&_nc_ohc=cwQJCKN82zoQ7kNvwGbhRoy&_nc_oc=Adp8bH2nRbllLTOrV2DJp0NSEdUb3Pf1hGrHmw5IriO7_Xnuxo7nNh2J7hBgNwVSmCU&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=E2qx3lleEolvsQqnBlTZ_w&_nc_ss=7a32e&oh=00_Afzl8QKnGSc3a1N_1LSWL0q2FoXi0rChmZcPDMtOagO57w&oe=69CAC648",
+    url: "https://images.unsplash.com/photo-1565958011703-44f9829ba187?q=80&w=800&auto=format&fit=crop",
     title: "Elegant Tiered Design",
     price: 2500,
     description: "A sophisticated multi-tiered cake perfect for weddings and grand celebrations."
   },
   {
     id: "p2",
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489791658_1114019620741683_1033841171124339470_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGsaN3HUKSlNTj0WHIOg2Ymc-S5og-8-lZz5LmiD7z6Vu7G272moLN7X4C1I9dCy0s&_nc_ohc=x0NW4ieybUgQ7kNvwEF6IdT&_nc_oc=AdrE-aQhCboBWrgeeFZKdaeD4eAlvQXwYsYaCTx5sLdSqOvjHzvOOLcAAnWxtAFTNBI&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=FxZ8lMPMK0GNkv-fg3CA1g&_nc_ss=7a32e&oh=00_AfzmoWOvoLoJZdR23xtqO-1fpodKvYsvo508B7Ch5ejFCw&oe=69CADE6D",
+    url: "https://images.unsplash.com/photo-1535254973040-607b474cb8c2?q=80&w=800&auto=format&fit=crop",
     title: "Floral Masterpiece",
     price: 1800,
     description: "Handcrafted sugar flowers adorn this delicate and flavorful creation."
   },
   {
     id: "p3",
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489132958_1114019644075014_1831521694006131761_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHuufsfK2Ar_mrDjkMkqj8AfGsSHcLYj2x8axIdwtiPbLXIm7dl8PrC_JdFQJrflSY&_nc_ohc=RF6FHdh5DVgQ7kNvwGsy2HA&_nc_oc=Adr8ecRJESJY-xUvsBM1cZDp3rNO0MTqJWKewOWJi5vyMZUJ767uD3lDXvBUT6tbFOQ&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=ntJQu2eALe4IKvwe-oioTw&_nc_ss=7a32e&oh=00_AfyeOGpE6nZKerZ03T2s_we9FRjNBl6z5zmsgrU5clci_g&oe=69CAD553",
+    url: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?q=80&w=800&auto=format&fit=crop",
     title: "Bespoke Wedding Cake",
     price: 5500,
     description: "Customized to your theme, this cake is the centerpiece your wedding deserves."
   },
   {
     id: "p4",
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489792470_1114019484075030_1451504521821765654_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH9ql9tFekhtelFPMdzsXOum1QZsQSOx-WbVBmxBI7H5euFQoBULnb_kNNhiBRPdWU&_nc_ohc=aIy2gz43bmIQ7kNvwFGcE2B&_nc_oc=AdpcW_fogmgd11gbZ5hWiTf8-B_rYtocHk7EUl0q6ligWi1DkgfTiflIb3KKzbR7W7A&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=fODv1pvZkQ4dzB6CxZ-ZQw&_nc_ss=7a32e&oh=00_Afz9RBVAWbI8QfbntO2OAtAZY-sBTLCT4YXIBFfvKHbXjA&oe=69CADE07",
+    url: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?q=80&w=800&auto=format&fit=crop",
     title: "Artisanal Detail",
     price: 1200,
     description: "Intricate piping and modern textures for a stylish celebration."
   },
   {
     id: "p5",
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518318785_1193420466134931_5281555292695521905_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH8g7_8AeaZsi2KGwAr9x6ElbsEVNJ6_XmVuwRU0nr9eR04GmjlGKITrJXGcfLgsg0&_nc_ohc=OktEI0bNccgQ7kNvwEqaqTA&_nc_oc=AdrqVjvLee4l3ZbxW_AxZxMWGgMqviTZz1FwpEV9H0v88iqo3yEgJfm0y94AhRws224&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=vaDYSreWnR7TXr2FQVocGA&_nc_ss=7a32e&oh=00_AfziggYDogptv_E7VqQ0Rl1_CIjbQ7UBuW0CvcJvn5DQaA&oe=69CADABF",
+    url: "https://images.unsplash.com/photo-1562440499-64c9a111f713?q=80&w=800&auto=format&fit=crop",
     title: "Signature Creation",
     price: 2200,
     description: "Our most popular design, balancing classic flavors with modern art."
   },
   {
     id: "p6",
-    url: "https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/518335794_1193420509468260_6923162679469864501_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeEXUDRvmjKke_gGnYalRHJnlCqq1OhRuGiUKqrU6FG4aGDPcP4_BEHtMiMHbux8RhA&_nc_ohc=f9ppFzCtqB4Q7kNvwFz_hJq&_nc_oc=Adr1GSOIn7D0WOLLOBLEA0BS5cz1jcWe_Z5-iYWRBAQMg8KhxBvBb-jFJ9VjXtDCazY&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=nF54J6gRNjp7guueO_xdHQ&_nc_ss=7a32e&oh=00_AfzrnpSqVw8AJLWIeEeQZ-4uFgUE5fAbsdw2ow7b6jEe8g&oe=69CAC3F3",
+    url: "https://images.unsplash.com/photo-1557308535-44a140ba45ee?q=80&w=800&auto=format&fit=crop",
     title: "Luxury Pastry",
     price: 950,
     description: "Small in size, grand in flavor. Perfect for intimate gifts."
@@ -434,7 +434,7 @@ export default function App() {
               className="absolute inset-0"
             >
               <img 
-                src="https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489503180_1114019514075027_7737077209642158684_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHrIUcRAlPkNVImi0J6u8zDMVXCIm8z3rwxVcIibzPevCTopZGCGsjdBTtwyMKcx0g&_nc_ohc=QbyzmqOag7gQ7kNvwENxnZR&_nc_oc=AdrrG0sZNRmbfhn9SwEcwwTqUPZ0e7o8pfBVdjmLDkz18o2YU8fPhcnud1KjzMc_Uys&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=qpHDxqragUvO6kzQm0M_JQ&_nc_ss=7a32e&oh=00_AfwNf5iJiqeRRq5UaA_YdIhc3dtqy9Lm4iOX4KiwRzUMHw&oe=69CAB879" 
+                src="https://images.unsplash.com/photo-1535141192574-5d4897c12636?q=80&w=1920&auto=format&fit=crop" 
                 alt="Luxury Custom Cake" 
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
@@ -558,7 +558,7 @@ export default function App() {
                     <img 
                       src={product.url} 
                       alt={product.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg">
@@ -645,7 +645,7 @@ export default function App() {
               >
                 <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
                   <img 
-                    src="https://scontent-man2-1.xx.fbcdn.net/v/t39.30808-6/489503180_1114019514075027_7737077209642158684_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeHrIUcRAlPkNVImi0J6u8zDMVXCIm8z3rwxVcIibzPevCTopZGCGsjdBTtwyMKcx0g&_nc_ohc=QbyzmqOag7gQ7kNvwENxnZR&_nc_oc=AdrrG0sZNRmbfhn9SwEcwwTqUPZ0e7o8pfBVdjmLDkz18o2YU8fPhcnud1KjzMc_Uys&_nc_zt=23&_nc_ht=scontent-man2-1.xx&_nc_gid=qpHDxqragUvO6kzQm0M_JQ&_nc_ss=7a32e&oh=00_AfwNf5iJiqeRRq5UaA_YdIhc3dtqy9Lm4iOX4KiwRzUMHw&oe=69CAB879" 
+                    src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?q=80&w=800&auto=format&fit=crop" 
                     alt="Baking Process" 
                     className="w-full h-full object-cover aspect-[4/5]"
                     referrerPolicy="no-referrer"
